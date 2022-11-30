@@ -7,12 +7,10 @@ let tarea = JSON.parse (tareas);
 const accion = process.argv[2];
 console.log(process.argv[2]);
 
-//no pude hacer la lista//
+
 
 if (accion == "listar"){
-    console.log ("Listado de tareas");
-    console.log ("-------------------------")
-    console.log (tarea);
+    listar ();
 }else if (accion == undefined){
      console.log ("Atencion - tienes que pasarme una accion");
 }else {
@@ -21,7 +19,13 @@ if (accion == "listar"){
 }
 
 
-
+function listar () {
+    console.log('Listado de tareas');
+    console.log('-------------------------------------------------------------');
+    tarea.forEach((element, i) => {
+        console.log(`${i + 1}. ${element.titulo} - ${element.estado}`);
+      });
+  }
 
 
 
